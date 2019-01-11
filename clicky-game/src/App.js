@@ -12,20 +12,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <nav id="nav" className="red">
-          <div className="nav-wrapper" id="navContent">
-            <div className="">Clicky Game!</div>
-            <div>
-              <Status />
-            </div>
-            <div>
-              <Score />
-            </div>
+        <div id="nav" className="red z-depth-2 white-text">
+          <div>
+            <strong>Clicky Game!</strong>
           </div>
-        </nav>
-        <div className="header">
-          <h1>Clicky Game!</h1>
-          <h3>
+          <Status />
+          <Score />
+        </div>
+        <div className="header ">
+          <h1 className="flow-text">
+            <strong>Clicky Game!</strong>
+          </h1>
+          <h3 className="flow-text">
             Click on an image to earn points, but don't click on any more than
             once!
           </h3>
@@ -33,9 +31,8 @@ class App extends Component {
         <div className="container">
           <div className="row">
             {this.state.characters.map(character => (
-              <div className="col s3">
+              <div className="col s12 m3">
                 <Card
-                  
                   key={character.id}
                   name={character.name}
                   src={character.image}

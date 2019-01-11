@@ -1,12 +1,13 @@
-#navContent {
-  display: flex;
-  justify-content: space-around;
-  font-size: 2em;
-}
-
 #nav {
   position: sticky;
   top: 0;
+  z-index: 3;
+  height: 12vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  font-size: 3.3vw;
 }
 
 .header {
