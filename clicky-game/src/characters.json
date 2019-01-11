@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Link",
+    "image": "https://upload.wikimedia.org/wikipedia/en/e/ef/Link_Super_Smash_Bros_Ultimate.png"
+  },
+  {
+    "id": 2,
+    "name": "Mario",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/99/MarioSMBW.png"
+  },
+  {
+    "id": 3,
+    "name": "Kirby",
+    "image": "https://upload.wikimedia.org/wikipedia/en/5/5c/Kirby.png"
+  },
+  {
+    "id": 4,
+    "name": "Jigglypuff",
+    "image": "https://upload.wikimedia.org/wikipedia/en/2/22/Pok%C3%A9mon_Jigglypuff_art.png"
+  },
+  {
+    "id": 5,
+    "name": "Donkey Kong",
+    "image": "https://upload.wikimedia.org/wikipedia/en/d/d4/Donkey_Kong_character.png"
+  },
+  {
+    "id": 6,
+    "name": "Samus",
+    "image": "https://upload.wikimedia.org/wikipedia/en/2/21/Metroidprime3_1.png"
+  },
+  {
+    "id": 7,
+    "name": "Luigi",
+    "image": "https://upload.wikimedia.org/wikipedia/en/f/f1/LuigiNSMBW.png"
+  },
+  {
+    "id": 8,
+    "name": "Ness",
+    "image": "https://vignette.wikia.nocookie.net/vsbattles/images/e/e9/1528831372701.png/revision/latest/scale-to-width-down/300?cb=20180613121812"
+  },
+  {
+    "id": 9,
+    "name": "Captain Falcon",
+    "image": "https://upload.wikimedia.org/wikipedia/en/4/4c/Captain_Falcon_character_portrait.png"
+  },
+  {
+    "id": 10,
+    "name": "Pikachu",
+    "image": "https://upload.wikimedia.org/wikipedia/en/a/a6/Pok%C3%A9mon_Pikachu_art.png"
+  },
+  {
+    "id": 11,
+    "name": "Yoshi",
+    "image": "https://upload.wikimedia.org/wikipedia/en/d/d9/YoshiMarioParty10.png"
+  },
+  {
+    "id": 12,
+    "name": "Fox",
+    "image": "https://upload.wikimedia.org/wikipedia/en/9/9e/Fox_Mccloud.png"
+  }
+]

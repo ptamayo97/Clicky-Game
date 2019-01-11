@@ -1,0 +1,18 @@
+#navContent {
+  display: flex;
+  justify-content: space-around;
+  font-size: 2em;
+}
+
+#nav {
+  position: sticky;
+  top: 0;
+}
+
+.header {
+  text-align: center;
+}
+
+img {
+  height: 15em;
+}
