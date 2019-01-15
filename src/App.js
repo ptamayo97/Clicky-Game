@@ -20,20 +20,26 @@ class App extends Component {
     message: ""
   };
 
-  cardShuffle = () => {
-    const shuffledCharacters = this.shuffleArray(characters);
-
-    this.setState({ charecters: shuffledCharacters });
+  click = () => {
+    this.cardShuffle();
+    const clickedCharacters = this.state.clickedCharacters;
+    // this.setState(this.state.clickedCharacters.id.push(clickedCharacters));
+    console.log(this.state.clickedCharacters);
   };
 
-  shuffleArray = charactersArray => {
-    for (let i = charactersArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [charactersArray[i], charactersArray[j]] = [
-        charactersArray[j],
-        charactersArray[i]
-      ];
-    }
+  cardShuffle = () => {
+    const shuffleArray = charactersArray => {
+      for (let i = charactersArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [charactersArray[i], charactersArray[j]] = [
+          charactersArray[j],
+          charactersArray[i]
+        ];
+      }
+    };
+    const shuffledCharacters = shuffleArray(characters);
+
+    this.setState({ charecters: shuffledCharacters });
   };
 
   cardCheck = () => {};
@@ -65,7 +71,7 @@ class App extends Component {
                 name={character.name}
                 image={character.image}
                 alt={character.name}
-                shuffle={this.cardShuffle}
+                click={this.click}
                 // style={styles.cardBackground}
               />
             ))}

@@ -7,7 +7,7 @@ const Card = props => {
         className="card card-container hvr-grow z-depth-2"
         key={props.id}
         name={props.name}
-        onClick={props.shuffle}
+        onClick={props.click}
       >
         <div className="card-image card-child ">
           <img src={props.image} alt={props.alt} />
