@@ -14,48 +14,58 @@ class App extends Component {
     clickedCharacters: [],
     score: 0,
     topScore: 0,
-    message: ["You guessed Correctly!", "Game Over!"]
+    message: "Click an image to begin!"
   };
 
   topScore = () => {
     if (this.state.score > this.state.topScore) {
-      this.setState({ topScore: this.state.score });
+      this.setState({
+        topScore: this.state.score
+      });
       console.log(this.state.topScore);
     }
   };
 
   click = event => {
+    const characterShuffle = this.state.characters.sort(
+      () => 0.5 - Math.random()
+    );
     const currentCharacter = event.target.alt;
     console.log(currentCharacter);
     const characterClicked =
       this.state.clickedCharacters.indexOf(currentCharacter) > -1;
     if (characterClicked) {
       this.setState({
-        characters: this.state.characters.sort(() => 0.5 - Math.random()),
+        characters: characterShuffle,
         clickedCharacters: [],
-        score: 0
+        score: 0,
+        message: "Game Over!"
       });
-      alert("You lose");
+      setTimeout(() => {
+        alert("You lose");
+      }, 200);
       this.topScore();
     } else {
       this.setState(
         {
-          characters: this.state.characters.sort(function(a, b) {
-            return 0.5 - Math.random();
-          }),
+          characters: characterShuffle,
           clickedCharacters: this.state.clickedCharacters.concat(
             currentCharacter
           ),
-          score: this.state.score + 1
+          score: this.state.score + 1,
+          message: "Correct!"
         },
         () => {
           if (this.state.score === 12) {
-            alert("You Win!");
+            setTimeout(() => {
+              alert("You Win!");
+            }, 200);
             this.topScore();
             this.setState({
-              characters: this.state.characters.sort(() => 0.5 - Math.random()),
+              characters: characterShuffle,
               clickedcharacters: [],
-              score: 0
+              score: 0,
+              message: "You Win!"
             });
           }
         }
@@ -63,14 +73,14 @@ class App extends Component {
     }
   };
 
-  charactershuffle = () => {
-    this.state.characters.sort(() => 0.5 - Math.random());
-  };
-
   render() {
     return (
       <Wrapper>
-        <Navbar score={this.state.score} topScore={this.state.topScore} />
+        <Navbar
+          message={this.state.message}
+          score={this.state.score}
+          topScore={this.state.topScore}
+        />
         <Header />
         <Container>
           <Row>
