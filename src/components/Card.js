@@ -4,7 +4,7 @@ const Card = props => {
   return (
     <div className="col s12 m3 card-wrapper ">
       <div
-        className="card card-container hvr-grow z-depth-2"
+        className="card card-container hvr-grow"
         key={props.id}
         name={props.name}
         onClick={props.click}

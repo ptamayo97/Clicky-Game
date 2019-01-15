@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import Status from "./components/Status";
-import Score from "./components/Score";
+import Wrapper from "./components/Wrapper";
+import Header from "./components/Header";
+import Container from "./components/Container";
+import Row from "./components/Row";
+import Navbar from "./components/Navbar";
 import Card from "./components/Card";
 import characters from "./characters.json";
 import "./App.css";
-
-// const styles = {
-//   cardBackground: {
-//     backgroundImage: `url(${characters.image})`
-//   }
-// };
 
 class App extends Component {
   state = {
@@ -17,54 +14,66 @@ class App extends Component {
     clickedCharacters: [],
     score: 0,
     topScore: 0,
-    message: ""
+    message: ["You guessed Correctly!", "Game Over!"]
   };
 
-  click = () => {
-    this.cardShuffle();
-    const clickedCharacters = this.state.clickedCharacters;
-    // this.setState(this.state.clickedCharacters.id.push(clickedCharacters));
-    console.log(this.state.clickedCharacters);
+  topScore = () => {
+    if (this.state.score > this.state.topScore) {
+      this.setState({ topScore: this.state.score });
+      console.log(this.state.topScore);
+    }
   };
 
-  cardShuffle = () => {
-    const shuffleArray = charactersArray => {
-      for (let i = charactersArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [charactersArray[i], charactersArray[j]] = [
-          charactersArray[j],
-          charactersArray[i]
-        ];
-      }
-    };
-    const shuffledCharacters = shuffleArray(characters);
-
-    this.setState({ charecters: shuffledCharacters });
+  click = event => {
+    const currentCharacter = event.target.alt;
+    console.log(currentCharacter);
+    const characterClicked =
+      this.state.clickedCharacters.indexOf(currentCharacter) > -1;
+    if (characterClicked) {
+      this.setState({
+        characters: this.state.characters.sort(() => 0.5 - Math.random()),
+        clickedCharacters: [],
+        score: 0
+      });
+      alert("You lose");
+      this.topScore();
+    } else {
+      this.setState(
+        {
+          characters: this.state.characters.sort(function(a, b) {
+            return 0.5 - Math.random();
+          }),
+          clickedCharacters: this.state.clickedCharacters.concat(
+            currentCharacter
+          ),
+          score: this.state.score + 1
+        },
+        () => {
+          if (this.state.score === 12) {
+            alert("You Win!");
+            this.topScore();
+            this.setState({
+              characters: this.state.characters.sort(() => 0.5 - Math.random()),
+              clickedcharacters: [],
+              score: 0
+            });
+          }
+        }
+      );
+    }
   };
 
-  cardCheck = () => {};
+  charactershuffle = () => {
+    this.state.characters.sort(() => 0.5 - Math.random());
+  };
 
   render() {
     return (
-      <div className="App ">
-        <div id="nav" className="red z-depth-2 white-text">
-          <div>
-            <strong>Clicky Game!</strong>
-          </div>
-          <Status />
-          <Score />
-        </div>
-        <div className="header ">
-          <h1 className="flow-text">
-            <strong>Clicky Game!</strong>
-          </h1>
-          <h3 className="flow-text">
-            Click on an image to earn points, but don't click on any more than
-            once!
-          </h3>
-        </div>
-        <div className="container cards-section">
-          <div className="row">
+      <Wrapper>
+        <Navbar score={this.state.score} topScore={this.state.topScore} />
+        <Header />
+        <Container>
+          <Row>
             {this.state.characters.map(character => (
               <Card
                 key={character.id}
@@ -72,12 +81,11 @@ class App extends Component {
                 image={character.image}
                 alt={character.name}
                 click={this.click}
-                // style={styles.cardBackground}
               />
             ))}
-          </div>
-        </div>
-      </div>
+          </Row>
+        </Container>
+      </Wrapper>
     );
   }
 }
