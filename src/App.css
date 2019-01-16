@@ -6,8 +6,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* text-align: center; */
-  /* font-size: 3vw; */
 }
 
 .navItem {
@@ -21,8 +19,6 @@
 }
 
 #message {
-  /* width: 40%;  */
-  /* position: absolute; */
   font-size: 3vmin;
   text-align: center;
 
